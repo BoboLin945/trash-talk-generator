@@ -19,8 +19,9 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
   const option = req.body
-  console.log(option)
-  res.render('index')
+  console.log(req.body)
+  const trashTalk = generateTrashTalk(option)
+  res.render('index', { trashTalk, option })
 })
 
 // setting port

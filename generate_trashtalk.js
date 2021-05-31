@@ -6,7 +6,7 @@ function sample(array) {
 
 // define generateTrashTalk function
 
-function generateTrashTalk() {
+function generateTrashTalk(option) {
   const task = {
     engineer: ['加個按鈕', '加新功能', '切個版', '改一點 code'],
     designer: ['畫一張圖', '改個 logo', '順便幫忙設計一下', '隨便換個設計'],
@@ -15,35 +15,32 @@ function generateTrashTalk() {
 
   const phrase = ['很簡單', '很容易', '很快', '很正常']
 
-  // define dummy data
-  const options = {
-    blankRadio: 'designer',
-  }
 
   // 取得 user 的選擇
   // 給 user 選擇角色中隨機的幹話組合
-  let option = []
+  let trashTalk = []
 
-  if (options.blankRadio === 'designer') {
-    option = option.concat(task.designer)
-    let word = sample(option)
-    console.log(`身為一個設計師，${word}，很容易吧！`)
-  } else if (options.blankRadio === 'engineer') {
-    option = option.concat(task.engineer)
-    let word = sample(option)
-    console.log(`身為一個工程師，${word}，很容易吧！`)
-  } else if(options.blankRadio === 'entrepreneur') {
-    option = option.concat(task.entrepreneur)
-    let word = sample(option)
-    console.log(`身為一個創業家，${word}，很容易吧！`)
+  if (option.designer) {
+    trashTalk = trashTalk.concat(task.designer)
+    let action = sample(trashTalk)
+    let adj = sample(phrase)
+    return `身為一個設計師，${action}，${adj}吧！`
+  } else if (option.engineer) {
+    trashTalk = trashTalk.concat(task.engineer)
+    let action = sample(trashTalk)
+    let adj = sample(phrase)
+    return `身為一個工程師，${action}，${adj}吧！`
+  } else if (option.entrepreneur) {
+    trashTalk = trashTalk.concat(task.entrepreneur)
+    let action = sample(trashTalk)
+    let adj = sample(phrase)
+    return `身為一個創業家，${action}，${adj}吧！`
   }
 
-  if (!options.blankRadio) {
+  if (!option.blankRadio) {
     return '還沒選擇幹話的對象哦！'
   }
 
-  // 回傳
-  console.log('This function will generate trash talk!')
 }
 
-generateTrashTalk()
+module.exports = generateTrashTalk
