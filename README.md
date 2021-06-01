@@ -8,6 +8,7 @@
 * User 可以選擇工程師、設計師、或創業家
 * User 按下【產生幹話】後，會出現隨機幹話
 * User 若未選擇對象，會出現尚未選擇幹話對象
+* UI RWD 設計
 
 <!-- GETTING STARTED -->
 ## :bulb: Getting Started
