@@ -20,17 +20,17 @@ function generateTrashTalk(option) {
   // 給 user 選擇角色中隨機的幹話組合
   let trashTalk = []
 
-  if (option.designer) {
+  if (option.choice === 'designer') {
     trashTalk = trashTalk.concat(task.designer)
     let action = sample(trashTalk)
     let adj = sample(phrase)
     return `身為一個設計師，${action}，${adj}吧！`
-  } else if (option.engineer) {
+  } else if (option.choice === 'engineer') {
     trashTalk = trashTalk.concat(task.engineer)
     let action = sample(trashTalk)
     let adj = sample(phrase)
     return `身為一個工程師，${action}，${adj}吧！`
-  } else if (option.entrepreneur) {
+  } else if (option.choice === 'entrepreneur') {
     trashTalk = trashTalk.concat(task.entrepreneur)
     let action = sample(trashTalk)
     let adj = sample(phrase)
