@@ -1,12 +1,12 @@
 // define sample function to randomly return a item in an array
-function sample(array) {
+function randomItem(array) {
   const index = Math.floor(Math.random() * array.length)
   return array[index]
 }
 
 // define generateTrashTalk function
 
-function generateTrashTalk(option) {
+function generateTrashTalk(character) {
   const task = {
     engineer: ['加個按鈕', '加新功能', '切個版', '改一點 code'],
     designer: ['畫一張圖', '改個 logo', '順便幫忙設計一下', '隨便換個設計'],
@@ -15,29 +15,28 @@ function generateTrashTalk(option) {
 
   const phrase = ['很簡單', '很容易', '很快', '很正常']
 
-
   // 取得 user 的選擇
   // 給 user 選擇角色中隨機的幹話組合
   let trashTalk = []
 
-  if (option.choice === 'designer') {
+  if (character.choice === 'designer') {
     trashTalk = trashTalk.concat(task.designer)
-    let action = sample(trashTalk)
-    let adj = sample(phrase)
+    let action = randomItem(trashTalk)
+    let adj = randomItem(phrase)
     return `身為一個設計師，${action}，${adj}吧！`
-  } else if (option.choice === 'engineer') {
+  } else if (character.choice === 'engineer') {
     trashTalk = trashTalk.concat(task.engineer)
-    let action = sample(trashTalk)
-    let adj = sample(phrase)
+    let action = randomItem(trashTalk)
+    let adj = randomItem(phrase)
     return `身為一個工程師，${action}，${adj}吧！`
-  } else if (option.choice === 'entrepreneur') {
+  } else if (character.choice === 'entrepreneur') {
     trashTalk = trashTalk.concat(task.entrepreneur)
-    let action = sample(trashTalk)
-    let adj = sample(phrase)
+    let action = randomItem(trashTalk)
+    let adj = randomItem(phrase)
     return `身為一個創業家，${action}，${adj}吧！`
   }
 
-  if (!option.blankRadio) {
+  if (!character.blankRadio) {
     return '還沒選擇幹話的對象哦！'
   }
 
